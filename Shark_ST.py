@@ -4,6 +4,7 @@ import os
 import numpy as np
 import re
 
+#HEADERS
 st.title('GLOBAL SHARK ATTACK')
 col1_0, col2_0, col3_0 = st.beta_columns(3)
 
@@ -18,26 +19,22 @@ st.header('An Exploratory Analysis')
 st.markdown('This document aims to demonstrate a way to clean the database provided and visuzalize some of its patterns and distributions')
 
 
-path = os.path.expanduser('~/SharkAttack/')
-
+#READING DATA
+path = os.path.expanduser('~/Desktop/SharkAttack/')
 df = pd.read_excel(path+'db_attack.xlsx')
-
 df0 = pd.read_csv(path+'attacks.csv', encoding='latin-1')
-
 initial_len = len(df0)
 final_len = len(df)
-
+#PAGE LAYOUT
 col1, col2, col3 = st.beta_columns(3)
-
 with col2:
     st.markdown(f'*Initial database length: {initial_len}*')
     st.markdown(f'*Final database length: {final_len}*')
     st.write('\n')
 
-
 #FILTERING
 
-#YEAR
+#YEAR & CHRIST REFERENCE
 adbc = st.sidebar.selectbox('WAS CHRIST ALIVE?', ['B.C.','A.D.'], 1)
 years = list(df[df['ad/bc'] == adbc].index)
 years = df.loc[years,'year_avg']
@@ -50,7 +47,6 @@ valid_years = list(valid_years)
 df_filtered = df.loc[valid_years]
 filt_year  = (df_filtered['year_avg']>=min(anos)) & (df_filtered['year_avg']<=max(anos))
 
-
 #BODY PART INJURY
 body =st.sidebar.text_input('A HAND FOR YOUR LIFE?')
 if body is np.nan:
@@ -60,15 +56,13 @@ else:
     losses = [loss for loss in losses if loss in valid_years]
     df_filtered = df_filtered.loc[losses,]
 
+#DATA VIZ
 
-
-
-
-
-##TOTAL CASES
+#TOTAL CASES
 st.subheader('REPORTED ATTACKS THROUGH THE YEARS')
 df_filtered = df_filtered[filt_year]
 total_cases = len(df_filtered)
+#PAGE LAYOUT
 col1_2, col2_2, col3_2 = st.beta_columns(3)
 with col3_2:
         st.markdown(f'Total number of cases: **{total_cases}**')
@@ -80,6 +74,7 @@ df_filtered[['date','area','injury','species']]
 st.subheader('20 ACTIVITIES MOST OFTEN PRACTICED DURING AN ATTACK')
 unknow = round(
     len(df_filtered[df_filtered['act_cat'] =='unknow'])/len(df),1)*100
+#PAGE LAYOUT
 col1_3, col2_3, col3_3 = st.beta_columns(3)
 with col3_3:
     st.markdown(f'Unknow: **{unknow}%**')
@@ -91,12 +86,12 @@ st.bar_chart(cases_activity)
 st.subheader('FREQUENCY BY SHARK SIZE')
 unknow = round(
     len(df_filtered[df_filtered['shark_size'] == 'unknow'])/len(df),1)*100
+#PAGE LAYOUT
 col1_4, col2_4, col3_4 = st.beta_columns(3)
 with col3_4:
     st.markdown(f'Unknow: **{unknow}%**')
 df_filtered_filt = df_filtered[df_filtered['shark_size']!='unknow']
 size = df_filtered_filt['shark_size'].value_counts(normalize=True).nlargest(20)
-
 st.bar_chart(size)
 
 #INJURY
@@ -107,6 +102,7 @@ l_cases = len(df_l)
 r_cases = len(df_r)
 injury = df_filtered['short_injury'].value_counts().nlargest(20)
 registers = injury.sum()
+#PAGE LAYOUT
 col1_5, col2_5, = st.beta_columns(2)
 with col2_5:
     st.markdown(f'Cases Reported: **{registers}**')
@@ -117,9 +113,5 @@ with col2_5:
     len(df_filtered[df_filtered['species'] == 'shark involvement not confirmed'])
     st.markdown(f'Shark involvement not confirmed: **{not_confirmed}**')
     st.markdown(f'No shark involved: **{no_shark}**')
-
 with col1_5:
     injury
-
-
-len(df_filtered[df_filtered['species']=='shark involvement not confirmed'])
