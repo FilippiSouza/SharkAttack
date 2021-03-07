@@ -1,5 +1,9 @@
 # Global Shark Attacks
 
+__*A data analysis of shark attacks records*__
+
+*source : https://www.kaggle.com/teajay/global-shark-attacks*
+
 
 ## What
 
