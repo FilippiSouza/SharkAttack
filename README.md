@@ -27,11 +27,11 @@ So, for that you just neeed to execute:
 pip install streamlit
 ```
 __NOTE__: Currently (March 2021), there is an installation issue with Python 3.9 and Streamlit.  
-For a alternative method of installation see: _https://discuss.streamlit.io/t/note-installation-issues-with-python-3-9-and-streamlit/6946_  
-For another issues : _https://docs.streamlit.io/en/stable/troubleshooting/clean-install.html_
+For a alternative method of installation other than downgrading python see: _https://discuss.streamlit.io/t/note-installation-issues-with-python-3-9-and-streamlit/6946_  
+For another issues: _https://docs.streamlit.io/en/stable/troubleshooting/clean-install.html_
 
 ### Just Seeing Results
-If all you want is to visualize the final result os this analysis and play with filters:
+If all you want is to visualize the final result of this analysis and play with filters:
 
 1- Create a folder in your Desktop area and name it as "SharkAttack"
 
@@ -51,5 +51,3 @@ streamlit run C:\Users\YOURUSERNAME\Desktop\SharkAttack\Shark_ST.py
 After running the jupyter-notebook script *__"SharkAttack"__*, you just need to run the *__step 3__* from the previous topic
 
 
-__NOTE__: Currently (March 2021), there is an installation issue with Python 3.9 and Streamlit.  
-For alternative methods of installation see: _https://discuss.streamlit.io/t/note-installation-issues-with-python-3-9-and-streamlit/6946_
