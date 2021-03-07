@@ -27,8 +27,10 @@ So, for that you just neeed to execute:
 pip install streamlit
 ```
 __NOTE__: Currently (March 2021), there is an installation issue with Python 3.9 and Streamlit.  
-For a alternative method of installation other than downgrading python see: _https://discuss.streamlit.io/t/note-installation-issues-with-python-3-9-and-streamlit/6946_  
-For another issues: _https://docs.streamlit.io/en/stable/troubleshooting/clean-install.html_
+* For a alternative method of installation other than downgrading python, see:  
+_https://discuss.streamlit.io/t/note-installation-issues-with-python-3-9-and-streamlit/6946_  
+* For another issues:  
+_https://docs.streamlit.io/en/stable/troubleshooting/clean-install.html_
 
 ### Just Seeing Results
 If all you want is to visualize the final result of this analysis and play with filters:
