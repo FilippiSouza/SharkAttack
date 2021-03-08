@@ -48,14 +48,19 @@ df_filtered = df.loc[valid_years]
 filt_year  = (df_filtered['year_avg']>=min(anos)) & (df_filtered['year_avg']<=max(anos))
 
 #BODY PART INJURY
-body =st.sidebar.text_input('A HAND FOR YOUR LIFE?')
+body =st.sidebar.text_input('TYPE A KEYWORD TO FILTER INJURIES:')                      
 if body is np.nan:
     pass
 else:
-    losses = df[df['injury_kw'].apply(lambda x: body in x) == True].index
-    losses = [loss for loss in losses if loss in valid_years]
-    df_filtered = df_filtered.loc[losses,]
-
+    body = str(body).lower() 
+    try:
+        body = body.lower()
+        losses = df[df['injury_kw'].apply(lambda x: body in x) == True].index
+        losses = [loss for loss in losses if loss in valid_years]
+        df_filtered = df_filtered.loc[losses,]
+    except:
+        st.title('NO RESULT FOUND')
+    
 #DATA VIZ
 
 #TOTAL CASES
