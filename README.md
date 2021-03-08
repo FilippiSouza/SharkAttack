@@ -47,9 +47,24 @@ If all you want is to visualize the final result of this analysis and play with 
 streamlit run C:\Users\YOURUSERNAME\Desktop\SharkAttack\Shark_ST.py
 ```
 
-4- Voilà! Now you can play with filters!
+4- Voilà! 
 
 ### The Whole Process
-After running the jupyter-notebook script *__"SharkAttack"__*, you just need to run the *__step 3__* from the previous topic
+If you want to take a look at the data cleaning and understand the way we got here:
 
+1- Run the jupyter-notebook script *__"SharkAttack"__*
+
+3- Use command prompt to run:
+```bash
+streamlit run C:\Users\YOURUSERNAME\Desktop\SharkAttack\Shark_ST.py
+```
+
+## Next Steps
+
+The analysis is at its early stage. The next steps for now are:
+
+* Normalizing shark size to 'meters'(converting other unit measures).
+* Relating fatality of attacks to shark size.
+* Standarizing another classifications/columns to further analysis.
+* Using a complementary database with more information about countries to enrich analysis. 
 
